@@ -1,0 +1,302 @@
+:root {
+    --primary-color: #22c55e;
+    --primary-hover: #16a34a;
+    --dark-bg: #374151;
+    --light-bg: #ffffff;
+    --text-light: #e0f7ff;
+    --text-dark: #1f2937;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+    --primary-color: #22c55e;
+    --primary-hover: #16a34a;
+    --dark-bg: #374151;
+    --light-bg: #1f2937;
+    --text-light: #e0f7ff;
+    --text-dark: #d1d5db;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+#loading {
+    transition: opacity 0.5s ease;
+}
+
+#loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader {
+    border-top-color: var(--primary-color);
+    border-color: rgba(255, 255, 255, 0.2);
+    animation: spin 1s linear infinite;
+}
+
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+#flashcard {
+    transition: transform 0.6s ease;
+    will-change: transform;
+}
+
+#flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+#flashcard .front,
+#flashcard .back {
+    transition: transform 0.6s ease;
+}
+
+#flashcard .front {
+    transform: rotateY(0deg);
+}
+
+#flashcard.flipped .front {
+    transform: rotateY(180deg);
+}
+
+#flashcard .back {
+    transform: rotateY(180deg);
+}
+
+#flashcard.flipped .back {
+    transform: rotateY(360deg);
+}
+
+#vocab-list li, #alphabet-list li {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#vocab-list li:hover, #alphabet-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dark #vocab-list li, .dark #alphabet-list li {
+    background: var(--dark-bg);
+    color: var(--text-light);
+}
+
+#vocab-list li img, #alphabet-list li img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+#vocab-list li img:hover, #alphabet-list li img:hover {
+    transform: scale(1.1);
+}
+
+#flashcard img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+#flashcard img:hover {
+    transform: scale(1.1);
+}
+
+#quiz-container img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+#quiz-container img:hover {
+    transform: scale(1.1);
+}
+
+.scramble-word {
+    background: #e6f3fa;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    cursor: move;
+    user-select: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.scramble-word.dragging {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.dark .scramble-word {
+    background: #4b5e6e;
+    color: var(--text-light);
+}
+
+#search-input, #category-filter {
+    background: var(--light-bg);
+    border: 1px solid var(--primary-color);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.dark #search-input, .dark #category-filter {
+    background: var(--dark-bg);
+    border: 1px solid var(--primary-color);
+    color: var(--text-light);
+}
+
+#search-input:focus, #category-filter:focus {
+    transform: scale(1.02);
+}
+
+#quiz-stats, #grammar-stats {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+#quiz-stats:hover, #grammar-stats:hover {
+    transform: translateY(-5px);
+}
+
+.dark #quiz-stats, .dark #grammar-stats {
+    background: var(--dark-bg);
+    color: var(--text-light);
+}
+
+#grammar-container .grammar-item {
+    background: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#grammar-container .grammar-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.dark #grammar-container .grammar-item {
+    background: var(--dark-bg);
+    color: var(--text-light);
+}
+
+#grammar-container .grammar-item .icon {
+    font-size: 2.5rem;
+    color: #a855f7;
+    margin-bottom: 1rem;
+}
+
+#grammar-container .exercise-container {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background: var(--light-bg);
+    border-radius: 1rem;
+    border: 1px solid var(--primary-color);
+    box-shadow: var(--shadow);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#grammar-container .exercise-container.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#grammar-container .exercise-container.hidden {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.dark #grammar-container .exercise-container {
+    background: var(--dark-bg);
+    border: 1px solid var(--primary-color);
+}
+
+#grammar-container .exercise-container label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#grammar-container .exercise-container label:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+#grammar-container .exercise-container input[type="text"] {
+    background: var(--light-bg);
+    padding: 0.5rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+#grammar-container .exercise-container input[type="text"]:focus {
+    transform: scale(1.02);
+}
+
+.dark #grammar-container .exercise-container input[type="text"] {
+    background: var(--dark-bg);
+    border: 1px solid var(--primary-color);
+    color: var(--text-light);
+}
+
+@media (max-width: 640px) {
+    #vocab-list, #alphabet-list {
+        grid-template-columns: 1fr;
+    }
+    #flashcard {
+        height: 200px;
+    }
+    #flashcard img {
+        width: 80px;
+        height: 80px;
+    }
+    #quiz-container img {
+        width: 100px;
+        height: 100px;
+    }
+    nav button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate__animated, .flipped, .animate-pulse {
+        animation: none !important;
+        transition: none !important;
+    }
+}
